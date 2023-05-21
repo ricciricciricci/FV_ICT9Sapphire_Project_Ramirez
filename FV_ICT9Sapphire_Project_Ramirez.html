@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #F5CAC3;
+            color: white;
+        }
+
+        #box {
+            width: auto;
+            margin-top: 50px;
+            margin-right: 15px;
+            padding: 20px;
+            background-color: #F28482;
+            border-radius: 25px;
+            border-style: double;
+            border-color: #ea638c;
+        }
+
+        .select {
+            margin-bottom: 20px;
+        }
+
+        .input {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .converters {
+            border-radius: 14px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            border-radius: 14px;
+            flex: 1;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #dd2d4a;
+            border-color: #ea638c;
+            cursor: pointer;
+            color: white;
+        }
+
+        .btn:hover {
+            background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+        }
+
+        .background {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ea638c;
+            border-radius: 10px;
+        }
+
+        .bars {
+            margin-right: 15px;
+            width: auto;
+            border-radius: 5px;
+            border-color: #dd2d4a;
+        }
+
+        .convertBtn {
+            flex: 0 0 auto;
+            width: 33.33333333%;
+        }
+
+        input[name="convertedValue"] {
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .barLocations {
+            font-size: 19px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bars" id="box">
+        <h1 align="center">Unit Converter</h1>
+        <hr>
+        <div class="select">
+            <label>
+                <h3>Select Measurement</h3>
+            </label>
+            <select class="background">
+                <option selected>Length</option>
+            </select>
+        </div>
+        <div class="input">
+            <div class="barLocations">
+                <label>
+                    Type the Desired Value :
+                </label>
+                <input style="height:30px;font-size: 17px;" type="number" class="bars" name="input" placeholder="Millimeter">
+            </div>
+            <div align="center">
+                <h1>= &nbsp;</h1>
+            </div>
+            <div class="barLocations">
+                <label>
+                    The Converted Value is :
+                </label>
+                <input style="height:30px;font-size: 17px;" type="number" class="bars" name="convertedValue" placeholder="0.0" disabled>
+            </div>
+        </div>
+        <hr>
+        <div class="converters" align="center">
+            <div class="convertBtn">
+                <button class="btn" onclick="getCentimeter()">Convert to Centimeters</button>
+            </div>
+            <div class="convertBtn">
+                <button class="btn" onclick="getMeter()">Convert to Meters</button>
+            </div>
+            <div class="convertBtn">
+                <button class="btn" onclick="getKilometer()">Convert to Kilometers</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function getCentimeter() {
+            var input = document.getElementsByName('input')[0].value;
+            var result = parseFloat(input) / 10;
+            document.getElementsByName('convertedValue')[0].value = result;
+        }
+
+        function getMeter() {
+            var base = document.getElementsByName('input')[0].value;
+            var result = parseFloat(base) / 1000;
+            document.getElementsByName('convertedValue')[0].value = result;
+        }
+
+        function getKilometer() {
+            var base = document.getElementsByName('input')[0].value;
+            var result = parseFloat(base) / 1000000;
+            document.getElementsByName('convertedValue')[0].value = result;
+        }
+    </script>
+</body>
+</html>
